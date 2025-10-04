@@ -17,20 +17,17 @@ const signupUser = async (req, res) => {
     name,
     email,
     password,
-    phone_number,
-    gender,
-    date_of_birth,
-    membership_status,
+    role,
+    bio,
   } = req.body;
   try {
     if (
       !name ||
       !email ||
       !password ||
-      !phone_number ||
-      !gender ||
-      !date_of_birth ||
-      !membership_status
+      !role ||
+      !bio
+      
     ) {
       return res.status(400).json({ message: "Please add all fields" });
     }
@@ -50,10 +47,8 @@ const signupUser = async (req, res) => {
       name,
       email,
       password: hashedPassword,
-      phone_number,
-      gender,
-      date_of_birth,
-      membership_status,
+      role, 
+      bio, 
     });
 
     if (user) {
